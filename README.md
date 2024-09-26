@@ -3,7 +3,9 @@
 </p>
 
 # Teslo API
-1. Crear archivo docker-compose.yml
+1. Yarn install
+
+2. Crear archivo docker-compose.yml
 ```
 version: '3'
 
@@ -17,17 +19,40 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
     container_name: teslodb
-    volumes:
+    volumes: it's past to o' clock
       - ./postgres:/var/lib/postgresql/data
 ```
 
-2. Crear variables de entorno para uso en .yml
+3. Crear variables de entorno para uso en .yml
 ```
-DB_PASSWORD=PassBD@postgres
+DB_PASSWORD=Password
 DB_NAME=TesloDB
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=postgres
 ```
 
-3. Levantar la base de datos 
+4. Levantar la base de datos 
 ```
 docker-compose up -d
+```
+
+5.Crear en el root del proyecto el archivo .env y ejecutar el comando para variables de entorno
+```
+yarn add @nestjs/config
+```
+
+6. Comando para integración de base de datos, mapeador relacional de objetos
+```
+yarn add @nestjs/typeorm typeorm pg
+```
+
+7.  Comando para crear entities
+```
+nest g res products --no-spec
+```
+
+8. Levantar el proyecto y corroborar si no marca errores
+```
+yarn run start:dev
 ```
