@@ -37,7 +37,7 @@ DB_USERNAME=postgres
 docker-compose up -d
 ```
 
-5.Crear en el root del proyecto el archivo .env y ejecutar el comando para variables de entorno
+5. Crear en el root del proyecto el archivo .env y ejecutar el comando para variables de entorno
 ```
 yarn add @nestjs/config
 ```
@@ -47,7 +47,7 @@ yarn add @nestjs/config
 yarn add @nestjs/typeorm typeorm pg
 ```
 
-7.  Comando para crear entities
+7. Comando para crear entities
 ```
 nest g res products --no-spec
 ```
@@ -55,4 +55,19 @@ nest g res products --no-spec
 8. Levantar el proyecto y corroborar si no marca errores
 ```
 yarn run start:dev
+```
+
+9. Comando validator para las class DTO
+```
+ npm i class-validator class-transformer
+```
+
+10. Agregar el GlobalPipes en el main
+```
+app.useGlobalPipes(
+ new ValidationPipe({
+ whitelist: true,
+ forbidNonWhitelisted: true,
+ })
+);
 ```
