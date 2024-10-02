@@ -71,3 +71,9 @@ app.useGlobalPipes(
  })
 );
 ```
+
+11. Comando para crear DTO
+```
+nest g mo nombre_dto
+```
+
